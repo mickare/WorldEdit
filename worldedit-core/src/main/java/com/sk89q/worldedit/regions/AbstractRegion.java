@@ -169,7 +169,7 @@ public abstract class AbstractRegion implements Region {
 
         for (int x = min.getBlockX(); x <= max.getBlockX(); ++x) {
             for (int z = min.getBlockZ(); z <= max.getBlockZ(); ++z) {
-                if (!contains(new Vector(x, minY, z))) {
+                if (!intersectsBlock(new Vector(x, minY, z))) {
                     continue;
                 }
 
@@ -193,7 +193,7 @@ public abstract class AbstractRegion implements Region {
         for (int x = min.getBlockX(); x <= max.getBlockX(); ++x) {
             for (int y = min.getBlockY(); y <= max.getBlockY(); ++y) {
                 for (int z = min.getBlockZ(); z <= max.getBlockZ(); ++z) {
-                    if (!contains(new Vector(x, y, z))) {
+                    if (!intersectsBlock(new Vector(x, y, z))) {
                         continue;
                     }
 
@@ -208,5 +208,12 @@ public abstract class AbstractRegion implements Region {
 
         return chunks;
     }
-
+    
+    /**
+     * Checks to see if a block intersects this region.
+     */
+    @Override
+    public boolean intersectsBlock(Vector position) {
+     return contains(position);
+    }
 }

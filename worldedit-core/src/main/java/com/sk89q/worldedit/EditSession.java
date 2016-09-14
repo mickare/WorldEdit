@@ -2271,7 +2271,7 @@ public class EditSession implements Extent {
                 continue;
             }
 
-            if (!region.contains(current)) {
+            if (!region.intersectsBlock(current)) {
                 continue;
             }
 

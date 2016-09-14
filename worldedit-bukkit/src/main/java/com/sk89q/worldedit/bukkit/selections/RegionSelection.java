@@ -112,7 +112,7 @@ public abstract class RegionSelection implements Selection {
             return false;
         }
 
-        return region.contains(toVector(position));
+        return region.intersectsBlock(toVector(position));
     }
 
 }

@@ -90,7 +90,7 @@ public class BukkitWorld extends LocalWorld {
         List<Entity> ents = world.getEntities();
         List<com.sk89q.worldedit.entity.Entity> entities = new ArrayList<com.sk89q.worldedit.entity.Entity>();
         for (Entity ent : ents) {
-            if (region.contains(BukkitUtil.toVector(ent.getLocation()))) {
+            if (region.intersectsBlock(BukkitUtil.toVector(ent.getLocation()))) {
                 entities.add(BukkitAdapter.adapt(ent));
             }
         }
@@ -186,7 +186,7 @@ public class BukkitWorld extends LocalWorld {
                         int index = y * 16 * 16 + z * 16 + x;
 
                         // We have to restore the block if it was outside
-                        if (!region.contains(pt)) {
+                        if (!region.intersectsBlock(pt)) {
                             editSession.smartSetBlock(pt, history[index]);
                         } else { // Otherwise fool with history
                             editSession.rememberChange(pt, history[index],

@@ -362,7 +362,7 @@ public class CuboidClipboard {
             for (int y = 0; y < size.getBlockY(); ++y) {
                 for (int z = 0; z < size.getBlockZ(); ++z) {
                     final Vector pt = new Vector(x, y, z).add(getOrigin());
-                    if (region.contains(pt)) {
+                    if (region.intersectsBlock(pt)) {
                         data[x][y][z] = editSession.getBlock(pt);
                     } else {
                         data[x][y][z] = null;

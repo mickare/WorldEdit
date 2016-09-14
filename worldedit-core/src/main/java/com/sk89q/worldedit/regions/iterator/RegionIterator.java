@@ -62,7 +62,7 @@ public class RegionIterator implements Iterator<BlockVector> {
     }
 
     private void forward() {
-        while (hasNext() && !region.contains(new BlockVector(nextX, nextY, nextZ))) {
+        while (hasNext() && !region.intersectsBlock(new BlockVector(nextX, nextY, nextZ))) {
             forwardOne();
         }
     }

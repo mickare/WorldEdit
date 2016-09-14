@@ -36,6 +36,6 @@ public class RegionMask extends AbstractMask {
 
     @Override
     public boolean matches(EditSession editSession, Vector position) {
-        return region.contains(position);
+        return region.intersectsBlock(position);
     }
 }

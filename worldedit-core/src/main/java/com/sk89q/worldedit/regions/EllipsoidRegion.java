@@ -191,7 +191,7 @@ public class EllipsoidRegion extends AbstractRegion {
 
         for (int x = min.getBlockX(); x <= max.getBlockX(); ++x) {
             for (int z = min.getBlockZ(); z <= max.getBlockZ(); ++z) {
-                if (!contains(new BlockVector(x, centerY, z))) {
+                if (!intersectsBlock(new BlockVector(x, centerY, z))) {
                     continue;
                 }
 

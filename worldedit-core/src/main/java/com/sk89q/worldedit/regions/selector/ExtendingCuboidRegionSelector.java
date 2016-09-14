@@ -102,7 +102,7 @@ public class ExtendingCuboidRegionSelector extends CuboidRegionSelector {
             return selectPrimary(position, limits);
         }
 
-        if (region.contains(position)) {
+        if (region.intersectsBlock(position)) {
             return false;
         }
 

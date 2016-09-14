@@ -292,7 +292,7 @@ public class ForgeWorld extends AbstractWorld {
                         Vector pt = min.add(x, y, z);
                         int index = y * 16 * 16 + z * 16 + x;
 
-                        if (!region.contains(pt))
+                        if (!region.intersectsBlock(pt))
                             editSession.smartSetBlock(pt, history[index]);
                         else {
                             editSession.rememberChange(pt, history[index], editSession.rawGetBlock(pt));
@@ -403,7 +403,7 @@ public class ForgeWorld extends AbstractWorld {
     public List<? extends Entity> getEntities(Region region) {
         List<Entity> entities = new ArrayList<Entity>();
         for (net.minecraft.entity.Entity entity : getWorld().loadedEntityList) {
-            if (region.contains(new Vector(entity.posX, entity.posY, entity.posZ))) {
+            if (region.intersectsBlock(new Vector(entity.posX, entity.posY, entity.posZ))) {
                 entities.add(new ForgeEntity(entity));
             }
         }

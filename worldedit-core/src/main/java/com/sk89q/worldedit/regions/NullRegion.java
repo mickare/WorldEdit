@@ -85,6 +85,11 @@ public class NullRegion implements Region {
     @Override
     public boolean contains(Vector position) {
         return false;
+    } 
+    
+    @Override
+    public boolean intersectsBlock(Vector position) {
+     return false;
     }
 
     @Override

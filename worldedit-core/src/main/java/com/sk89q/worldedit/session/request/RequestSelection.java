@@ -114,6 +114,11 @@ public class RequestSelection implements Region {
     }
 
     @Override
+    public boolean intersectsBlock(Vector position) {
+     return intersectsBlock(position);
+    }
+    
+    @Override
     public Set<Vector2D> getChunks() {
         return getRegion().getChunks();
     }

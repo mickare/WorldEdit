@@ -63,7 +63,7 @@ public class RegionMask extends AbstractMask {
 
     @Override
     public boolean test(Vector vector) {
-        return region.contains(vector);
+        return region.intersectsBlock(vector);
     }
 
     @Nullable

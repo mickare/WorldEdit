@@ -35,7 +35,7 @@ public class RegionShape extends ArbitraryShape {
 
     @Override
     protected BaseBlock getMaterial(int x, int y, int z, BaseBlock defaultMaterial) {
-        if (!this.extent.contains(new Vector(x, y, z))) {
+        if (!this.extent.intersectsBlock(new Vector(x, y, z))) {
             return null;
         }
 

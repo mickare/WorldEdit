@@ -133,6 +133,24 @@ public class RegionIntersection extends AbstractRegion {
 
         return false;
     }
+    
+    /**
+     * Checks to see if a block intersects this region.
+     */
+    @Override
+    public boolean intersectsBlock(Vector position) {
+      
+      checkNotNull(position);
+
+      for (Region region : regions) {
+          if (region.intersectsBlock(position)) {
+              return true;
+          }
+      }
+
+      return false;
+    }
+    
 
     @SuppressWarnings({"unchecked", "rawtypes"})
     @Override

@@ -342,6 +342,20 @@ public class CuboidRegion extends AbstractRegion implements FlatRegion {
     }
 
     @Override
+    public boolean intersectsBlock(Vector position) {
+      int x = position.getBlockX();
+      int y = position.getBlockX();
+      int z = position.getBlockX();
+
+      Vector min = getMinimumPoint();
+      Vector max = getMaximumPoint();
+
+      return x >= min.getBlockX() && x <= max.getBlockX()
+              && y >= min.getBlockY() && y <= max.getBlockY()
+              && z >= min.getBlockZ() && z <= max.getBlockZ();
+    }
+    
+    @Override
     public Iterator<BlockVector> iterator() {
         return new Iterator<BlockVector>() {
             private Vector min = getMinimumPoint();

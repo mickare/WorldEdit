@@ -99,7 +99,7 @@ public class BlockArrayClipboard implements Clipboard {
     public List<? extends Entity> getEntities(Region region) {
         List<Entity> filtered = new ArrayList<Entity>();
         for (Entity entity : entities) {
-            if (region.contains(entity.getLocation().toVector())) {
+            if (region.intersectsBlock(entity.getLocation().toVector())) {
                 filtered.add(entity);
             }
         }
@@ -121,7 +121,7 @@ public class BlockArrayClipboard implements Clipboard {
 
     @Override
     public BaseBlock getBlock(Vector position) {
-        if (region.contains(position)) {
+        if (region.intersectsBlock(position)) {
             Vector v = position.subtract(region.getMinimumPoint());
             BaseBlock block = blocks[v.getBlockX()][v.getBlockY()][v.getBlockZ()];
             if (block != null) {
@@ -139,7 +139,7 @@ public class BlockArrayClipboard implements Clipboard {
 
     @Override
     public boolean setBlock(Vector position, BaseBlock block) throws WorldEditException {
-        if (region.contains(position)) {
+        if (region.intersectsBlock(position)) {
             Vector v = position.subtract(region.getMinimumPoint());
             blocks[v.getBlockX()][v.getBlockY()][v.getBlockZ()] = new BaseBlock(block);
             return true;

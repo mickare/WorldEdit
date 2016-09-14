@@ -119,6 +119,14 @@ public interface Region extends Iterable<BlockVector>, Cloneable {
     public boolean contains(Vector position);
 
     /**
+     * Returns true based on whether the region intersects the block at the point.
+     * 
+     * @param position the position
+     * @return true if intersect
+     */
+    boolean intersectsBlock(Vector position);
+    
+    /**
      * Get a list of chunks.
      *
      * @return a list of chunk coordinates
@@ -169,4 +177,5 @@ public interface Region extends Iterable<BlockVector>, Cloneable {
      * @return the points.
      */
     public List<BlockVector2D> polygonize(int maxPoints);
+
 }
